@@ -6,6 +6,6 @@
 ### 3. Escape the maze by the fastest possible route. - Attempted (Success)
 
 ## Advanced Requirements
-### 1. Find the quickest route out of the maze (20%) - Attempted (Success)
-### 2. Map the maze (20%) - Attempted (Failed)
-### 3. Return to home (20%)  - Attempted (Success)
+### 1. Find the quickest route out of the maze - Attempted (Success)
+### 2. Map the maze - Attempted (Failed)
+### 3. Return to home - Attempted (Success)
