@@ -1,12 +1,23 @@
 #region VEXcode Generated Robot Configuration
+import math
+import random
 from vexcode_vr import *
+
+
+brain=Brain()
 
 drivetrain = Drivetrain("drivetrain", 0)
 pen = Pen("pen", 8)
 pen.set_pen_width(THIN)
+left_bumper = Bumper("leftBumper", 2)
+right_bumper = Bumper("rightBumper", 3)
+front_eye = EyeSensor("frontEye", 4)
 down_eye = EyeSensor("downEye", 5)
 front_distance = Distance("frontdistance", 6)
+distance = front_distance
+magnet = Electromagnet("magnet", 7)
 location = Location("location", 9)
+
 #endregion VEXcode Generated Robot Configuration
 
 STEP = 250          # distance moved each step (one tile)
@@ -233,6 +244,14 @@ def when_started1():
     # fastest route from start back to finish
     path_fast = bfs_path(startk, finishk)
     follow_keys(path_fast, True)
+
+    #return home again after reaching finish (green path back)
+    curk = curkey()
+    path_back_again = bfs_path(curk, startk)
+    if len(path_back_again) >= 2:
+        follow_keys(path_back_again, False)
+    else:
+        reverse_route_to_start(startk)
 
     drivetrain.stop()
 
